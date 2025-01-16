@@ -28,3 +28,18 @@ function displayQuotes(quotes) {
         resultDiv.textContent = 'No quotes found.';
     }
 }
+
+document.getElementById('copyButton').addEventListener('click', function() {
+    const resultDiv = document.getElementById('result');
+    const range = document.createRange();
+    range.selectNode(resultDiv);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+    try {
+        document.execCommand('copy');
+        alert('Quotes copied to clipboard!');
+    } catch (err) {
+        alert('Failed to copy quotes.');
+    }
+    window.getSelection().removeAllRanges();
+});
