@@ -1,0 +1,15 @@
+{
+  "name": "quote-extractor-website",
+  "version": "1.0.0",
+  "description": "A simple website that extracts text between double quotes from user input.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "live-server src"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  },
+  "author": "",
+  "license": "ISC"
+}
