@@ -31,15 +31,10 @@ function displayQuotes(quotes) {
 
 document.getElementById('copyButton').addEventListener('click', function() {
     const resultDiv = document.getElementById('result');
-    const range = document.createRange();
-    range.selectNode(resultDiv);
-    window.getSelection().removeAllRanges();
-    window.getSelection().addRange(range);
-    try {
-        document.execCommand('copy');
+    const quotesText = Array.from(resultDiv.children).map(p => p.textContent).join('\n');
+    navigator.clipboard.writeText(quotesText).then(function() {
         alert('Quotes copied to clipboard!');
-    } catch (err) {
+    }).catch(function(err) {
         alert('Failed to copy quotes.');
-    }
-    window.getSelection().removeAllRanges();
+    });
 });
